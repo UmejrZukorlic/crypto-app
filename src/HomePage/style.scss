@@ -1,0 +1,51 @@
+.coinsSection {
+  width: 80%;
+  margin: 5em auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .coinContainer {
+    width: 100%;
+    padding: 2em 2em;
+    border: 0.5px solid rgb(129, 131, 134);
+    border-bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    .rank {
+      width: 5%;
+    }
+    .icon {
+      width: 2.5%;
+    }
+    .currencyName {
+      width: 15%;
+      font-size: 1.7em;
+      font-weight: 500;
+    }
+    .mCap {
+      width: 15%;
+      color: rgb(129, 131, 134);
+    }
+    .price {
+      width: 10%;
+      font-weight: 700;
+    }
+    .volume {
+      width: 15%;
+      font-weight: 700;
+    }
+    .activeSupply {
+      width: 20%;
+      color: rgb(129, 131, 134);
+    }
+    .red {
+      color: red;
+    }
+    .green {
+      color: rgb(0, 255, 0);
+    }
+  }
+}
