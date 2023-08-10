@@ -1,19 +1,87 @@
 .coinsSection {
   width: 80%;
-  margin: 5em auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  .headerSection {
+    padding: 1.5em 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .headerLeft {
+      h1 {
+        font-size: 1.4em;
+        color: rgb(0, 136, 255);
+      }
+      p {
+        color: rgb(129, 131, 134);
+      }
+    }
+    .headerRight {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      button {
+        background-color: white;
+        border: 1px rgb(202, 202, 202) solid;
+        padding: 0.5em 0.7em;
+        color: rgb(113, 113, 113);
+      }
+      .first {
+        border-radius: 10px 0 0 10px;
+      }
+      .last {
+        border-radius: 0 10px 10px 0;
+      }
+    }
+  }
+  .sortSection {
+    background-color: rgb(229, 229, 229);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.7em 2em;
+    gap: 5px;
+    font-size: 0.9em;
+    color: rgb(113, 113, 113);
+    .rank {
+      width: 7.5%;
+    }
+    .currencyName {
+      width: 15%;
+    }
+    .mCap {
+      width: 15%;
+    }
+    .price {
+      width: 10%;
+    }
+    .volume {
+      text-align: end;
+      width: 15%;
+    }
+    .activeSupply {
+      text-align: end;
+      width: 20%;
+    }
+    .change {
+      width: calc(100% - 20% - 15% - 10% - 15% - 17.5% - 5%);
+      text-align: center;
+    }
+  }
+
   .coinContainer {
     width: 100%;
-    padding: 2em 2em;
-    border: 0.5px solid rgb(129, 131, 134);
+    padding: 1.5em 2em;
+    border: 1px rgb(229, 229, 229) solid;
     border-bottom: 0;
     display: flex;
-    justify-content: flex-start;
+
     align-items: center;
-    gap: 10px;
     .rank {
       width: 5%;
     }
@@ -21,8 +89,9 @@
       width: 2.5%;
     }
     .currencyName {
+      margin-left: 10px;
       width: 15%;
-      font-size: 1.7em;
+      font-size: 1.2em;
       font-weight: 500;
     }
     .mCap {
@@ -34,17 +103,23 @@
       font-weight: 700;
     }
     .volume {
+      text-align: end;
       width: 15%;
       font-weight: 700;
     }
     .activeSupply {
       width: 20%;
       color: rgb(129, 131, 134);
+      text-align: end;
     }
     .red {
+      width: calc(100% - 20% - 15% - 10% - 15% - 17.5% - 5%);
+      text-align: center;
       color: red;
     }
     .green {
+      width: calc(100% - 20% - 15% - 10% - 15% - 17.5% - 5%);
+      text-align: center;
       color: rgb(0, 255, 0);
     }
   }

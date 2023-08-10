@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
+import Layout from "../Layout";
 
 const HomePage = () => {
   const [data, setData] = useState([
@@ -2993,44 +2994,67 @@ const HomePage = () => {
       last_updated: "2023-08-08T13:32:39.778Z",
     },
   ]);
-  //   useEffect(() => {
-  //     axios
-  //       .get(
-  //         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-  //       )
-  //       .then((response) => {
-  //         setData(response.data);
-  //         console.log(response.data);
-  //       });
-  //   }, [data, setData]);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+  //     )
+  //     .then((response) => {
+  //       setData(response.data);
+  //       console.log(response.data);
+  //     });
+  // }, [data, setData]);
   return (
-    <div className="coinsSection">
-      {data?.map((el) => {
-        return (
-          <div key={el.id} className="coinContainer">
-            <p className="rank">{el.market_cap_rank}</p>
-            <img src={el.image} alt={el.name} className="icon" />
-            <h1 className="currencyName">{el.name}</h1>
-            <p className="mCap">${el.market_cap.toLocaleString()}</p>
-            <p className="price">${el.current_price.toLocaleString()}</p>
-            <p className="volume">${el.total_volume.toLocaleString()}</p>
-            <p className="activeSupply">
-              {el.circulating_supply.toLocaleString() +
-                " " +
-                el.symbol.toUpperCase()}
-            </p>
-            <p
-              className={
-                Math.sign(el.price_change_percentage_24h) === -1
-                  ? "red"
-                  : "green"
-              }>
-              {el.price_change_percentage_24h.toFixed(2)}%
-            </p>
+    <Layout>
+      <div className="coinsSection">
+        <div className="headerSection">
+          <div className="headerLeft">
+            <h1>Top 100 currencies</h1>
+            <p>by market capitalization</p>
           </div>
-        );
-      })}
-    </div>
+          <div className="headerRight">
+            <button className="first">All currencies</button>
+            <button>Coins</button>
+            <button>Tokens</button>
+            <button className="last">NFTs (Beta)</button>
+          </div>
+        </div>
+        <div className="sortSection">
+          <p className="rank">#</p>
+          <p className="currencyName">Coin</p>
+          <p className="mCap">Market Cap</p>
+          <p className="price">Price</p>
+          <p className="volume">Volume 24h</p>
+          <p className="activeSupply">Circulating</p>
+          <p className="change">Change (24h)</p>
+        </div>
+        {data?.map((el) => {
+          return (
+            <div key={el.id} className="coinContainer">
+              <p className="rank">{el.market_cap_rank}</p>
+              <img src={el.image} alt={el.name} className="icon" />
+              <h1 className="currencyName">{el.name}</h1>
+              <p className="mCap">${el.market_cap.toLocaleString()}</p>
+              <p className="price">${el.current_price.toLocaleString()}</p>
+              <p className="volume">${el.total_volume.toLocaleString()}</p>
+              <p className="activeSupply">
+                {el.circulating_supply.toLocaleString() +
+                  " " +
+                  el.symbol.toUpperCase()}
+              </p>
+              <p
+                className={
+                  Math.sign(el.price_change_percentage_24h) === -1
+                    ? "red"
+                    : "green"
+                }>
+                {el.price_change_percentage_24h.toFixed(2)}%
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </Layout>
   );
 };
 
