@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Layout from "../Layout";
+import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 
 const HomePage = () => {
+  const [operator, setOperator] = useState(false);
   const [data, setData] = useState([
     {
       id: "bitcoin",
@@ -2994,6 +2996,31 @@ const HomePage = () => {
       last_updated: "2023-08-08T13:32:39.778Z",
     },
   ]);
+
+  function newMarket(nesto) {
+    setData(
+      [...data].sort((a, b) => {
+        if (operator) {
+          return a[nesto] - b[nesto];
+        } else {
+          return b[nesto] - a[nesto];
+        }
+      })
+    );
+    console.log("Sorting");
+    setOperator(!operator);
+    console.log(operator);
+  }
+
+  const sortedByName = () => {
+    setData(
+      [...data].sort((a, b) =>
+        operator ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+      )
+    );
+    setOperator(!operator);
+  };
+
   // useEffect(() => {
   //   axios
   //     .get(
@@ -3021,17 +3048,53 @@ const HomePage = () => {
         </div>
         <div className="sortSection">
           <p className="rank">#</p>
-          <p className="currencyName">Coin</p>
-          <p className="mCap">Market Cap</p>
-          <p className="price">Price</p>
-          <p className="volume">Volume 24h</p>
-          <p className="activeSupply">Circulating</p>
-          <p className="change">Change (24h)</p>
+          <p
+            className="currencyName"
+            onClick={() => {
+              sortedByName();
+            }}>
+            Coin {operator ? <VscChevronDown /> : <VscChevronUp />}
+          </p>
+          <p
+            className="mCap"
+            onClick={() => {
+              newMarket("market_cap");
+            }}>
+            Market Cap
+          </p>
+          <p
+            className="price"
+            onClick={() => {
+              newMarket("current_price");
+            }}>
+            Price
+          </p>
+          <p
+            className="volume"
+            onClick={() => {
+              newMarket("total_volume");
+            }}>
+            Volume 24h
+          </p>
+          <p
+            className="activeSupply"
+            onClick={() => {
+              newMarket("circulating_supply");
+            }}>
+            Circulating
+          </p>
+          <p
+            className="change"
+            onClick={() => {
+              newMarket("price_change_percentage_24h");
+            }}>
+            Change (24h)
+          </p>
         </div>
-        {data?.map((el) => {
+        {data?.map((el, i) => {
           return (
             <div key={el.id} className="coinContainer">
-              <p className="rank">{el.market_cap_rank}</p>
+              <p className="rank">{i + 1}</p>
               <img src={el.image} alt={el.name} className="icon" />
               <h1 className="currencyName">{el.name}</h1>
               <p className="mCap">${el.market_cap.toLocaleString()}</p>
@@ -3042,6 +3105,7 @@ const HomePage = () => {
                   " " +
                   el.symbol.toUpperCase()}
               </p>
+
               <p
                 className={
                   Math.sign(el.price_change_percentage_24h) === -1

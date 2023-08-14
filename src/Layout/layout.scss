@@ -1,3 +1,32 @@
+.navBar {
+  width: 80%;
+  height: fit-content;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .logo {
+  max-height: 5em;
+  transform: scale(2);
   mix-blend-mode: color-burn;
+}
+input[type="text"] {
+  font-size: 1em;
+  padding: 0.4em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px rgb(209, 209, 209);
+}
+.navbtn {
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.navbtn:hover {
+  background-color: rgb(209, 209, 209);
+  cursor: pointer;
+  color: rgb(0, 136, 255);
+  transition: 0.2s;
 }
