@@ -11,7 +11,7 @@ const Layout = (props) => {
         <input type="text" placeholder="  Search" />
         <p className="navbtn">CONVERTER</p>
         <p className="navbtn">EXCHANGE</p>
-        <select name="" id="">
+        <select name="select" id="select">
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="JPY">JPY</option>

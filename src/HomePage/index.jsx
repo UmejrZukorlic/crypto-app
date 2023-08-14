@@ -3039,12 +3039,12 @@ const HomePage = () => {
             <h1>Top 100 currencies</h1>
             <p>by market capitalization</p>
           </div>
-          <div className="headerRight">
-            <button className="first">All currencies</button>
-            <button>Coins</button>
-            <button>Tokens</button>
-            <button className="last">NFTs (Beta)</button>
-          </div>
+          <ul className="headerRight">
+            <li className="first active">All currencies</li>
+            <li>Coins</li>
+            <li>Tokens</li>
+            <li className="last">NFTs (Beta)</li>
+          </ul>
         </div>
         <div className="sortSection">
           <p className="rank">#</p>
@@ -3060,35 +3060,35 @@ const HomePage = () => {
             onClick={() => {
               newMarket("market_cap");
             }}>
-            Market Cap
+            Market Cap{operator ? <VscChevronDown /> : <VscChevronUp />}
           </p>
           <p
             className="price"
             onClick={() => {
               newMarket("current_price");
             }}>
-            Price
+            Price{operator ? <VscChevronDown /> : <VscChevronUp />}
           </p>
           <p
             className="volume"
             onClick={() => {
               newMarket("total_volume");
             }}>
-            Volume 24h
+            Volume 24h {operator ? <VscChevronDown /> : <VscChevronUp />}
           </p>
           <p
             className="activeSupply"
             onClick={() => {
               newMarket("circulating_supply");
             }}>
-            Circulating
+            Circulating{operator ? <VscChevronDown /> : <VscChevronUp />}
           </p>
           <p
             className="change"
             onClick={() => {
               newMarket("price_change_percentage_24h");
             }}>
-            Change (24h)
+            Change (24h){operator ? <VscChevronDown /> : <VscChevronUp />}
           </p>
         </div>
         {data?.map((el, i) => {
