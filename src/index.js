@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import HomePage from "./HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Context from "./context";
+import CoinPage from "./CoinPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,7 @@ root.render(
       <Context>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/coin" element={<HomePage />} />
+          <Route path="/coin" element={<CoinPage />} />
         </Routes>
       </Context>
     </BrowserRouter>
