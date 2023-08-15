@@ -3,11 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import HomePage from "./HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Context from "./context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HomePage />
+    <BrowserRouter>
+      <Context>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/coin" element={<HomePage />} />
+        </Routes>
+      </Context>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

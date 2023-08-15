@@ -8,9 +8,10 @@ const Layout = (props) => {
       <div className="Header"></div>
       <div className="navBar">
         <img src={Photo} alt="logo" className="logo" />
-        <input type="text" placeholder="  Search" />
-        <p className="navbtn">CONVERTER</p>
-        <p className="navbtn">EXCHANGE</p>
+        <div className="btns">
+          <p className="navbtn">CONVERTER</p>
+          <p className="navbtn">EXCHANGE</p>
+        </div>
         <select name="select" id="select">
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>

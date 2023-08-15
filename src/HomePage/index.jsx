@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.scss";
 import Layout from "../Layout";
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
+import { MyContext } from "../context";
 
 const HomePage = () => {
   const [operator, setOperator] = useState(false);
@@ -3031,6 +3032,7 @@ const HomePage = () => {
   //       console.log(response.data);
   //     });
   // }, [data, setData]);
+  const { baseUrl, setBaseUrl } = useContext(MyContext);
   return (
     <Layout>
       <div className="coinsSection">
@@ -3039,12 +3041,9 @@ const HomePage = () => {
             <h1>Top 100 currencies</h1>
             <p>by market capitalization</p>
           </div>
-          <ul className="headerRight">
-            <li className="first active">All currencies</li>
-            <li>Coins</li>
-            <li>Tokens</li>
-            <li className="last">NFTs (Beta)</li>
-          </ul>
+          <div className="headerRight">
+            <input type="text" placeholder="  Search" className="headerRight" />
+          </div>
         </div>
         <div className="sortSection">
           <p className="rank">#</p>
