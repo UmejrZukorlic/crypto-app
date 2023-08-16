@@ -68,12 +68,12 @@
       width: 15%;
     }
     .activeSupply {
-      justify-content: flex-end;
+      justify-content: center;
       width: 20%;
     }
     .change {
       width: calc(100% - 20% - 15% - 10% - 15% - 17.5% - 5%);
-      justify-content: center;
+      justify-content: flex-start;
     }
   }
 

@@ -4922,9 +4922,14 @@ const CoinPage = () => {
   // }, []);
   return (
     <div>
-      <img src={data.image.large} alt="slika" />
+      <img src={data.image.large} alt="slika" className="" />
       <h1>{data.name}</h1>
       <p dangerouslySetInnerHTML={{ __html: data.description.en }}></p>
+      <div>
+        {data.categories.map((el, i) => {
+          return <p key={i}>{el}</p>;
+        })}
+      </div>
     </div>
   );
 };
