@@ -3073,7 +3073,7 @@ const HomePage = () => {
             onClick={() => {
               newMarket("total_volume");
             }}>
-            Volume 24h {operator ? <VscChevronDown /> : <VscChevronUp />}
+            Total Volume{operator ? <VscChevronDown /> : <VscChevronUp />}
           </p>
           <p
             className="activeSupply"

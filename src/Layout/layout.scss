@@ -13,13 +13,6 @@
     left: 5%;
     mix-blend-mode: color-burn;
   }
-  input[type="text"] {
-    font-size: 1em;
-    padding: 0.4em;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 4px 4px 5px rgb(209, 209, 209);
-  }
   .btns {
     display: flex;
     align-items: center;
@@ -52,5 +45,10 @@
   }
   :focus {
     outline: none;
+    color: rgb(2, 127, 236);
+    option {
+      border: none;
+      outline: none;
+    }
   }
 }
