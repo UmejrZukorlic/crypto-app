@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+} from "chart.js";
+import CoinChart from "./CoinChart";
+
+ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale);
 const CoinPage = () => {
+  const [sparklineData, setSparklineData] = useState([]);
   const [data, setData] = useState({
     id: "bitcoin",
     symbol: "btc",
@@ -4920,15 +4932,48 @@ const CoinPage = () => {
   //       console.log(response.data);
   //     });
   // }, []);
+  useEffect(() => {
+    setSparklineData(data.market_data.sparkline_7d.price);
+  }, [data]);
+  const chartData = {
+    labels: Array.from({ length: sparklineData.length }, (_, i) => i),
+    datasets: [
+      {
+        label: "Bitcoin Price",
+        data: sparklineData,
+        borderColor: "blue",
+        fill: true,
+        pointStyle: false,
+      },
+    ],
+  };
+
   return (
     <div>
+      <p>RANK #{data.market_cap_rank}</p>
       <img src={data.image.large} alt="slika" className="" />
       <h1>{data.name}</h1>
+      <h1>{data.symbol.toUpperCase()}</h1>
+      <h1>{data.market_data.current_price.usd}$</h1>
+      <div className="coinChart">
+        <h1>
+          {data.name} Price Chart ({data.symbol.toUpperCase()})
+        </h1>
+        <CoinChart data={data} />
+      </div>
       <p dangerouslySetInnerHTML={{ __html: data.description.en }}></p>
       <div>
         {data.categories.map((el, i) => {
           return <p key={i}>{el}</p>;
         })}
+      </div>
+      <div className="priceChange">
+        <h1>Price Change</h1>
+        <p>{data.market_data.price_change_percentage_24h.toFixed(3)}%</p>
+        <p>{data.market_data.price_change_percentage_7d.toFixed(3)}%</p>
+        <p>{data.market_data.price_change_percentage_14d.toFixed(3)}%</p>
+        <p>{data.market_data.price_change_percentage_30d.toFixed(3)}%</p>
+        <p>{data.market_data.price_change_percentage_1y.toFixed(3)}%</p>
       </div>
     </div>
   );
