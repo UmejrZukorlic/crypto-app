@@ -1,0 +1,53 @@
+.coinInfoPage {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  .basicInfoContainer {
+    display: flex;
+    flex-direction: column;
+    .rank {
+      border-radius: 10px;
+      width: max-content;
+      padding: 0.2em 0.5em;
+      background-color: rgb(255, 153, 0);
+      color: white;
+      margin: 1em 0;
+    }
+    .nameContainer {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+  }
+  .coinChart {
+    canvas {
+      width: 100% !important;
+      height: 60vh !important;
+    }
+  }
+  .priceChange {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    p {
+      padding: 0.6em;
+      background-color: rgb(63, 63, 63);
+      border-radius: 10px;
+      span {
+        border-radius: 10px;
+        padding: 0.2em 0.3em;
+        margin: 0 0.1em;
+      }
+      .red {
+        background-color: rgba(255, 0, 0, 0.427);
+        color: rgb(255, 35, 35);
+      }
+      .green {
+        background-color: rgba(0, 252, 0, 0.274);
+        color: rgb(0, 255, 0);
+      }
+    }
+  }
+}

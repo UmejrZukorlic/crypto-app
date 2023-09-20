@@ -123,9 +123,9 @@ const CoinChart = ({ data }) => {
       {
         label: "Bitcoin Price",
         data: sparklineData.prices,
-        borderColor: "blue",
+        borderColor: "orange",
         fill: true,
-        pointStyle: false,
+        pointStyle: true,
       },
     ],
   };

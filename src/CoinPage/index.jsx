@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
+import "./style.scss";
 import {
   Chart as ChartJS,
   LineElement,
@@ -4949,32 +4950,105 @@ const CoinPage = () => {
   };
 
   return (
-    <div>
-      <p>RANK #{data.market_cap_rank}</p>
-      <img src={data.image.large} alt="slika" className="" />
-      <h1>{data.name}</h1>
-      <h1>{data.symbol.toUpperCase()}</h1>
-      <h1>{data.market_data.current_price.usd}$</h1>
+    <div className="coinInfoPage">
+      <div className="basicInfoContainer">
+        <p className="rank">RANK #{data.market_cap_rank}</p>
+        <div className="nameContainer">
+          <img src={data.image.small} alt="slika" className="" />
+          <h1>{data.name}</h1>
+          <h1>{data.symbol.toUpperCase()}</h1>
+        </div>
+        <h1>{data.market_data.current_price.usd} $ </h1>
+      </div>
       <div className="coinChart">
         <h1>
           {data.name} Price Chart ({data.symbol.toUpperCase()})
         </h1>
         <CoinChart data={data} />
       </div>
-      <p dangerouslySetInnerHTML={{ __html: data.description.en }}></p>
-      <div>
-        {data.categories.map((el, i) => {
-          return <p key={i}>{el}</p>;
-        })}
-      </div>
       <div className="priceChange">
-        <h1>Price Change</h1>
-        <p>{data.market_data.price_change_percentage_24h.toFixed(3)}%</p>
-        <p>{data.market_data.price_change_percentage_7d.toFixed(3)}%</p>
-        <p>{data.market_data.price_change_percentage_14d.toFixed(3)}%</p>
-        <p>{data.market_data.price_change_percentage_30d.toFixed(3)}%</p>
-        <p>{data.market_data.price_change_percentage_1y.toFixed(3)}%</p>
+        <p>
+          24h{" "}
+          <span
+            className={
+              Math.sign(data.market_data.price_change_percentage_24h) === -1
+                ? "red"
+                : "green"
+            }>
+            {data.market_data.price_change_percentage_24h.toFixed(3)}%
+          </span>
+        </p>
+        <p>
+          7d{" "}
+          <span
+            className={
+              Math.sign(data.market_data.price_change_percentage_7d) === -1
+                ? "red"
+                : "green"
+            }>
+            {data.market_data.price_change_percentage_7d.toFixed(3)}%
+          </span>
+        </p>
+        <p>
+          14d{" "}
+          <span
+            className={
+              Math.sign(data.market_data.price_change_percentage_14d) === -1
+                ? "red"
+                : "green"
+            }>
+            {data.market_data.price_change_percentage_14d.toFixed(3)}%
+          </span>
+        </p>
+        <p>
+          30d{" "}
+          <span
+            className={
+              Math.sign(data.market_data.price_change_percentage_30d) === -1
+                ? "red"
+                : "green"
+            }>
+            {data.market_data.price_change_percentage_30d.toFixed(3)}%
+          </span>
+        </p>
+        <p>
+          1y{" "}
+          <span
+            className={
+              Math.sign(data.market_data.price_change_percentage_1y) === -1
+                ? "red"
+                : "green"
+            }>
+            {data.market_data.price_change_percentage_1y.toFixed(3)}%
+          </span>
+        </p>
       </div>
+      <div className="marketDataContainer">
+        <h1>Market Stats</h1>
+        <div>
+          <p>Market Cap</p>
+          <h2>{data.market_data.market_cap.usd.toLocaleString()} $</h2>
+        </div>
+        <div>
+          <p>Fully Diluted Valuation</p>
+          <h2>
+            {data.market_data.fully_diluted_valuation.usd.toLocaleString()} $
+          </h2>
+        </div>
+        <div>
+          <p>Circulating Supply</p>
+          <h2>{data.market_data.circulating_supply.toLocaleString()}</h2>
+        </div>
+        <div>
+          <p>Total Supply</p>
+          <h2>{data.market_data.total_supply.toLocaleString()}</h2>
+        </div>
+        <div>
+          <p>Total Volume</p>
+          <h2>{data.market_data.total_volume.usd.toLocaleString()} $</h2>
+        </div>
+      </div>
+      <p dangerouslySetInnerHTML={{ __html: data.description.en }}></p>
     </div>
   );
 };
