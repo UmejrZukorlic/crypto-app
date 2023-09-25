@@ -5025,27 +5025,29 @@ const CoinPage = () => {
       </div>
       <div className="marketDataContainer">
         <h1>Market Stats</h1>
-        <div>
-          <p>Market Cap</p>
-          <h2>{data.market_data.market_cap.usd.toLocaleString()} $</h2>
-        </div>
-        <div>
-          <p>Fully Diluted Valuation</p>
-          <h2>
-            {data.market_data.fully_diluted_valuation.usd.toLocaleString()} $
-          </h2>
-        </div>
-        <div>
-          <p>Circulating Supply</p>
-          <h2>{data.market_data.circulating_supply.toLocaleString()}</h2>
-        </div>
-        <div>
-          <p>Total Supply</p>
-          <h2>{data.market_data.total_supply.toLocaleString()}</h2>
-        </div>
-        <div>
-          <p>Total Volume</p>
-          <h2>{data.market_data.total_volume.usd.toLocaleString()} $</h2>
+        <div className="statsContainer">
+          <div>
+            <p>Market Cap</p>
+            <h2>{data.market_data.market_cap.usd.toLocaleString()} $</h2>
+          </div>
+          <div>
+            <p>Fully Diluted Valuation</p>
+            <h2>
+              {data.market_data.fully_diluted_valuation.usd.toLocaleString()} $
+            </h2>
+          </div>
+          <div>
+            <p>Circulating Supply</p>
+            <h2>{data.market_data.circulating_supply.toLocaleString()}</h2>
+          </div>
+          <div>
+            <p>Total Supply</p>
+            <h2>{data.market_data.total_supply.toLocaleString()}</h2>
+          </div>
+          <div>
+            <p>Total Volume</p>
+            <h2>{data.market_data.total_volume.usd.toLocaleString()} $</h2>
+          </div>
         </div>
       </div>
       <p dangerouslySetInnerHTML={{ __html: data.description.en }}></p>

@@ -22,6 +22,7 @@
     }
   }
   .coinChart {
+    margin-top: 2em;
     canvas {
       width: 100% !important;
       height: 60vh !important;
@@ -48,6 +49,22 @@
         background-color: rgba(0, 252, 0, 0.274);
         color: rgb(0, 255, 0);
       }
+    }
+  }
+  .marketDataContainer {
+    margin-top: 2em;
+    h1 {
+      margin: 1em 0 1em 1em;
+    }
+    .statsContainer {
+      border-radius: 20px;
+      padding: 2em;
+      background-color: rgba(32, 32, 32, 0.47);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-basis: 100px;
     }
   }
 }
