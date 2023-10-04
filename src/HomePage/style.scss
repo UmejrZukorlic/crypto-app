@@ -1,3 +1,5 @@
+$p_siva: rgb(140, 140, 140);
+
 .coinsSection {
   width: 80%;
   margin: auto;
@@ -5,7 +7,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
+  color: white;
   .headerSection {
     padding: 1.5em 2em;
     width: 100%;
@@ -14,10 +17,7 @@
     .headerLeft {
       h1 {
         font-size: 1.4em;
-        color: rgb(0, 136, 255);
-      }
-      p {
-        color: rgb(129, 131, 134);
+        color: rgb(255, 153, 0);
       }
     }
     .headerRight {
@@ -29,7 +29,6 @@
         padding: 0.4em;
         border: none;
         border-radius: 5px;
-        box-shadow: 4px 4px 15px rgb(209, 209, 209);
       }
       :focus {
         outline: none;
@@ -37,7 +36,7 @@
     }
   }
   .sortSection {
-    background-color: rgb(229, 229, 229);
+    background-color: rgb(0, 0, 0);
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -45,7 +44,7 @@
     padding: 0.7em 2em;
     gap: 5px;
     font-size: 0.9em;
-    color: rgb(113, 113, 113);
+    color: $p_siva;
     cursor: pointer;
     p {
       display: flex;
@@ -80,39 +79,38 @@
   .coinContainer {
     width: 100%;
     padding: 1.5em 2em;
-    border: 1px rgb(229, 229, 229) solid;
     border-bottom: 0;
     display: flex;
-
     align-items: center;
+    font-weight: 500;
+
     .rank {
       width: 5%;
+      color: $p_siva;
     }
     .icon {
       width: 2.5%;
+      border-radius: 50%;
     }
     .currencyName {
       margin-left: 10px;
       width: 15%;
       font-size: 1.2em;
-      font-weight: 500;
     }
     .mCap {
       width: 15%;
-      color: rgb(129, 131, 134);
+      color: $p_siva;
     }
     .price {
       width: 10%;
-      font-weight: 700;
     }
     .volume {
       text-align: end;
       width: 15%;
-      font-weight: 700;
     }
     .activeSupply {
       width: 20%;
-      color: rgb(129, 131, 134);
+      color: $p_siva;
       text-align: end;
     }
     .red {
